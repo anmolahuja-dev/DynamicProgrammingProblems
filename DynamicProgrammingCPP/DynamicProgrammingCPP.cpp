@@ -2,6 +2,7 @@
 #include"fibonacci.h"
 #include"MultistageGraph.h"
 #include"FloydWarshallAlgo.h"
+#include"MatrixChainM.h"
 #include<vector>
 using namespace std;
 
@@ -17,6 +18,7 @@ int main()
         cout << "[1] - Fibonnacci using memorization method\n";
         cout << "[2] - Shortest Path in Multistage graph\n";
         cout << "[3] - Floyd Warshall Algorithm\n";
+        cout << "[4] - Matrix Chain Multiplication\n";
         cout << "[0] - Quit";
 
         cout << "\nEnter your choice : ";
@@ -68,6 +70,23 @@ int main()
                 }
             }
             shortestPath(A, v);
+        }
+        else if (ch == 4) {
+            int n,d;
+            cout << "Enter the number of Matrices : ";
+            cin >> n;
+            n += 1;
+            vector<int>D;
+            cout << "Enter the dimentions : ";
+            for (int i = 0; i < n; i++)
+            {
+                cout << "Enter d" << i << " : ";
+                cin >> d;
+                D.emplace_back(d);
+            } 
+
+            MatrixChainM(D, n);
+
         }
         else if (ch == 0) {
             cout << "Thanks\n";
