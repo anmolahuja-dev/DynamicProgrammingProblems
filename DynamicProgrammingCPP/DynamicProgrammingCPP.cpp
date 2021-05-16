@@ -2,6 +2,7 @@
 #include"fibonacci.h"
 #include"MultistageGraph.h"
 #include"FloydWarshallAlgo.h"
+#include"Knapsack.h"
 #include"MatrixChainM.h"
 #include<vector>
 using namespace std;
@@ -19,6 +20,7 @@ int main()
         cout << "[2] - Shortest Path in Multistage graph\n";
         cout << "[3] - Floyd Warshall Algorithm\n";
         cout << "[4] - Matrix Chain Multiplication\n";
+        cout << "[5] - 0/1 Knapsack Problem\n";
         cout << "[0] - Quit";
 
         cout << "\nEnter your choice : ";
@@ -87,6 +89,31 @@ int main()
 
             MatrixChainM(D, n);
 
+        }
+        else if (ch == 5) {
+            int n,val,W;
+            cout << "\nEnter the number of objects : ";
+            cin >> n;
+            
+            vector<int>pi, wi; //pi-profit wi-weight
+            pi.push_back(0); wi.push_back(0);
+
+            for (int i = 1; i <= n; i++) {
+                cout << "Enter wi (weight) for item " << i << " : ";
+                cin >> val;
+                wi.push_back(val);
+                cout<< "Enter pi (profit) for item " << i << " : ";
+                cin >> val;
+                pi.push_back(val);
+
+            }
+
+            cout << "\nEnter the Knapsack Capacity : ";
+            cin >> W;
+
+            vector<vector<int>>V(n+1, vector<int>(W+1, 0)); //Table
+
+            knapsack(V, pi, wi,W,n);
         }
         else if (ch == 0) {
             cout << "Thanks\n";
