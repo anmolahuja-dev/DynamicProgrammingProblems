@@ -3,6 +3,7 @@
 #include"MultistageGraph.h"
 #include"FloydWarshallAlgo.h"
 #include"Knapsack.h"
+#include"OptimalBST.h"
 #include"MatrixChainM.h"
 #include<vector>
 using namespace std;
@@ -21,6 +22,7 @@ int main()
         cout << "[3] - Floyd Warshall Algorithm\n";
         cout << "[4] - Matrix Chain Multiplication\n";
         cout << "[5] - 0/1 Knapsack Problem\n";
+        cout << "[6] - Optimal Binary Search tree\n";
         cout << "[0] - Quit";
 
         cout << "\nEnter your choice : ";
@@ -114,6 +116,41 @@ int main()
             vector<vector<int>>V(n+1, vector<int>(W+1, 0)); //Table
 
             knapsack(V, pi, wi,W,n);
+        }
+        else if (ch == 6) {
+            int n,val;
+            cout << "Enter the number of keys for Binary search Tree : ";
+            cin >> n;
+
+            vector<int>keys, pi, qi;
+            
+            keys.push_back(0);
+            pi.push_back(0);
+
+            cout << "Enter Keys \n";
+            for (int i = 1; i <= n; i++) {
+                cout << "Enter Key " << i << " : ";
+                cin >> val;
+                keys.push_back(val);
+            }
+
+            cout << "Enter Successfull Probablities \n";
+            for (int i = 1; i <= n; i++) {
+                cout << "Enter P" << i << " : ";
+                cin >> val;
+                pi.push_back(val);
+            }
+
+            cout << "Enter Unsuccessfull Probablities \n";
+            for (int i = 0; i <= n; i++) {
+                cout << "Enter q" << i << " : ";
+                cin >> val;
+                qi.push_back(val);
+            }
+
+
+            OptimalBST(keys, pi, qi,n);
+
         }
         else if (ch == 0) {
             cout << "Thanks\n";

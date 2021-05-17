@@ -35,5 +35,8 @@
     <ClInclude Include="Knapsack.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="OptimalBST.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
